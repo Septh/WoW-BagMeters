@@ -15,15 +15,16 @@ BagMeters does offer a few settings for you to play with. To acces them, you can
 
 
 ## Help
-Comments are disabled here on Curse.com and on Curseforge.com. Should you need any help, please open an issue on [GitHub](https://github.com/Septh/WoW-BagMeters "GitHub repository"), where the projet lives.
+Comments are disabled here on Curse.com and on Curseforge.com. Should you need any help, please open an issue on [GitHub](https://github.com/Septh/WoW-BagMeters/issues "GitHub repository"), where the projet lives.
 
 
 ## History
 I created BagMeters a few years ago but never uploaded it to Curse. Shame on me.
 
-BagMeters is an original creation but it was heavilly inspired by [Bag Status Meters](https://wow.curseforge.com/addons/project-99/ "Bag Status Meter"), by Madorin. Bag Status Meters is no longer maintained since... 2006 - yeah, that's 10 years.
-
 This release is a full rewrite using the latest Ace3 libraries.
+
+BagMeters is an original creation but it was heavilly inspired by [Bag Status Meter](https://wow.curseforge.com/addons/project-99/ "Bag Status Meter"), by Madorin. Bag Status Meter is no longer maintained since... 2006 - yeah, that's 10 years.
+
 
 
 ## Licence
