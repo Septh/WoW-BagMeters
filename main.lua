@@ -133,9 +133,9 @@ function addon:OnInitialize()
 	LibStub('AceConfigDialog-3.0'):AddToBlizOptions('BagMeters', 'BagMeters', nil, 'general')
 	LibStub('AceConfigDialog-3.0'):AddToBlizOptions('BagMeters', 'Profile', 'BagMeters', 'profile')
 
-	self.db.RegisterCallback(self, 'OnProfileChanged', 'RefreshConfig')
-	self.db.RegisterCallback(self, 'OnProfileCopied',  'RefreshConfig')
-	self.db.RegisterCallback(self, 'OnProfileReset',   'RefreshConfig')
+	self.db.RegisterCallback(self, 'OnProfileChanged', 'UpdateProfile')
+	self.db.RegisterCallback(self, 'OnProfileCopied',  'UpdateProfile')
+	self.db.RegisterCallback(self, 'OnProfileReset',   'UpdateProfile')
 
 	self:RegisterChatCommand('bm',        'ChatCommand')
 	self:RegisterChatCommand('bagmeters', 'ChatCommand')
@@ -156,7 +156,7 @@ function addon:OnInitialize()
 	end
 
 	-- Active/désactive les compteurs selon le profil courant
-	self:RefreshConfig()
+	self:UpdateProfile()
 end
 
 -- Raccourci
@@ -256,7 +256,7 @@ end
 ------------------------------------------------------------------------------
 -- Gestion des profils
 ------------------------------------------------------------------------------
-function addon:RefreshConfig()
+function addon:UpdateProfile()
 	self:SetEnabledState(self.db.global.enabled)
 	if self.db.global.enabled then
 		self:OnEnable()
