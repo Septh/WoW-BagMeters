@@ -1,5 +1,5 @@
 
-local L = LibStub('AceLocale-3.0'):NewLocale('BagMeters', 'enUS')
+local L = LibStub('AceLocale-3.0'):NewLocale('BagMeters', 'enUS', true)
 if not L then return end
 
 L["OPTIONS_GENERALES"] = "General settings"

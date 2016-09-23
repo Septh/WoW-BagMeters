@@ -18,8 +18,8 @@ libs\AceGUI-3.0\AceGUI-3.0.xml
 libs\AceConfig-3.0\AceConfig-3.0.xml
 libs\AceLocale-3.0\AceLocale-3.0.xml
 
-locales\fr.lua
 locales\en.lua
+locales\fr.lua
 
 main.lua
 meters.lua
