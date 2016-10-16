@@ -132,27 +132,26 @@ function addon:OnInitialize()
 	LibStub('AceConfig-3.0'):RegisterOptionsTable('BagMeters', options_panel_gui)
 	LibStub('AceConfigDialog-3.0'):AddToBlizOptions('BagMeters', 'BagMeters', nil, 'general')
 	LibStub('AceConfigDialog-3.0'):AddToBlizOptions('BagMeters', 'Profile', 'BagMeters', 'profile')
-
 	self.db.RegisterCallback(self, 'OnProfileChanged', 'UpdateProfile')
 	self.db.RegisterCallback(self, 'OnProfileCopied',  'UpdateProfile')
 	self.db.RegisterCallback(self, 'OnProfileReset',   'UpdateProfile')
 
-	self:RegisterChatCommand('bm',        'ChatCommand')
 	self:RegisterChatCommand('bagmeters', 'ChatCommand')
+	self:RegisterChatCommand('bm',        'ChatCommand')
 
 	-- Crées les compteurs
 	local BM_MeterFactory = self:GetModule('MeterFactory')
 
 	self.meters = {}
 
-	table.insert(self.meters, BM_MeterFactory:NewMeter(BM_MeterFactory.BACKPACK))			-- 1 > Sac à dos
+	table.insert(self.meters, BM_MeterFactory:NewMeter(BM_MeterFactory.BACKPACK))			-- meters[1] = Sac à dos
 
 	for i = 1, NUM_CHAR_BAGS do
-		table.insert(self.meters, BM_MeterFactory:NewMeter(BM_MeterFactory.CHAR_BAG, i))	-- 2 ... 5 > Sacs
+		table.insert(self.meters, BM_MeterFactory:NewMeter(BM_MeterFactory.CHAR_BAG, i))	-- meters[2 ... 5] > Sacs
 	end
 
 	for i = 1, NUM_BANK_BAGS do
-		table.insert(self.meters, BM_MeterFactory:NewMeter(BM_MeterFactory.BANK_BAG, i))	-- 6 ... 12 > Banque
+		table.insert(self.meters, BM_MeterFactory:NewMeter(BM_MeterFactory.BANK_BAG, i))	-- meters[6 ... 12] > Banque
 	end
 
 	-- Active/désactive les compteurs selon le profil courant
@@ -203,18 +202,17 @@ end
 ------------------------------------------------------------------------------
 function addon:ToggleBlizzard(info, hide)
 
-	-- Sauve le réglage
+	-- Sauve le réglage si appelé depuis les options
 	if info then self.db.profile.hideBlizz = hide end
 
 	-- Affiche/masque le compteur
-	local x = (self.db.global.enabled and hide) and '0' or '1'
-	SetCVar("displayFreeBagSlots", x, "DISPLAY_FREE_BAG_SLOTS")
+	SetCVar("displayFreeBagSlots", (self.db.global.enabled and hide) and '0' or '1', "DISPLAY_FREE_BAG_SLOTS")
 end
 
 ------------------------------------------------------------------------------
 function addon:ToggleCharBags(info, enable)
 
-	-- Sauve le réglage
+	-- Sauve le réglage si appelé depuis les options
 	if info then self.db.profile.charBags = enable end
 
 	-- Affiche/masque les compteurs
@@ -227,7 +225,7 @@ end
 ------------------------------------------------------------------------------
 function addon:ToggleBankBags(info, enable)
 
-	-- Sauve le réglage
+	-- Sauve le réglage si appelé depuis les options
 	if info then self.db.profile.bankBags = enable end
 
 	-- Affiche/masqye les compteurs

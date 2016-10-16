@@ -61,7 +61,7 @@ function MeterClass:new(bagType, bagNum)
 		o.bagId = bagNum + NUM_BAG_SLOTS						-- NUM_BAG_SLOTS + 1 => NUM_BAG_SLOTS + NUM_BANKBAGSLOTS
 		parent  = _G['BankSlotsFrame']['Bag'..bagNum]			-- 'BankSlotsFrame.Bag1' => 'BankSlotsFrame.Bag7'
 	else
-		return nil
+		return
 	end
 
 	-- Crée les widgets
