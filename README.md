@@ -24,6 +24,8 @@ I rarely read comments here on Curse.com; should you need any help, you'd better
 
 ## Change Log
 
+* Version 1.0.3 - 09/26/2016
+	* Toc update for 7.1
 * Version 1.0.2 - 09/23/2016
 	* Made enUS the default locale instead of frFR - better for our friends from others countries! :)
 * Version 1.0.1 - 09/23/2016
