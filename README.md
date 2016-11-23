@@ -24,13 +24,15 @@ I rarely read comments here on Curse.com; should you need any help, you'd better
 
 ## Change Log
 
-* Version 1.0.3 - 09/26/2016
+* Version 1.0.4 - 2016/11/23
+	* Bank bag meters will correctly hide on empty slots
+* Version 1.0.3 - 2016/09/26
 	* Toc update for 7.1
-* Version 1.0.2 - 09/23/2016
+* Version 1.0.2 - 2016/09/23
 	* Made enUS the default locale instead of frFR - better for our friends from others countries! :)
-* Version 1.0.1 - 09/23/2016
+* Version 1.0.1 - 2016/09/23
 	* TOC correction - forgot AceGUI :)
-* Version 1.0.0 - 09/23/2016
+* Version 1.0.0 - 2016/09/23
 	* Initial release
 
 

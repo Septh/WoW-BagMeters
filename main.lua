@@ -179,8 +179,8 @@ function addon:OnEnable()
 	self:ToggleBankBags(nil, self.db.profile.bankBags)
 
 	-- Evénements
-	self:RegisterEvent('BANKFRAME_OPENED', 'UpdateAllMeters')
-	self:RegisterEvent('BAG_UPDATE',       'UpdateAllMeters')
+	self:RegisterEvent('BANKFRAME_OPENED',   'UpdateAllMeters')
+	self:RegisterEvent('BAG_UPDATE_DELAYED', 'UpdateAllMeters')
 end
 
 ------------------------------------------------------------------------------
@@ -238,7 +238,7 @@ end
 ------------------------------------------------------------------------------
 -- Met à jour tous les compteurs affichés
 ------------------------------------------------------------------------------
-function addon:UpdateAllMeters()
+function addon:UpdateAllMeters(evt)
 	for _,meter in ipairs(self.meters) do
 		meter:update()
 	end

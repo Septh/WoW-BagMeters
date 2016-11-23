@@ -50,27 +50,26 @@ function MeterClass:new(bagType, bagNum)
 	setmetatable(o, self)
 
 	-- Trouve le bagId
-	local parent
 	if (bagType == factory.BACKPACK) then
 		o.bagId = BACKPACK_CONTAINER
-		parent  = _G['MainMenuBarBackpackButton']
+		o.parent  = _G['MainMenuBarBackpackButton']
 	elseif (bagType == factory.CHAR_BAG) then
-		o.bagId = bagNum										-- 1 => NUM_BAG_SLOS
-		parent  = _G['CharacterBag'..(bagNum - 1)..'Slot']		-- 'CharacterBag0Slot' => 'CharacterBag3Slot'
+		o.bagId = bagNum										-- 1 => NUM_BAG_SLOTS
+		o.parent  = _G['CharacterBag'..(bagNum - 1)..'Slot']	-- 'CharacterBag0Slot' => 'CharacterBag3Slot'
 	elseif (bagType == factory.BANK_BAG) then
 		o.bagId = bagNum + NUM_BAG_SLOTS						-- NUM_BAG_SLOTS + 1 => NUM_BAG_SLOTS + NUM_BANKBAGSLOTS
-		parent  = _G['BankSlotsFrame']['Bag'..bagNum]			-- 'BankSlotsFrame.Bag1' => 'BankSlotsFrame.Bag7'
+		o.parent  = _G['BankSlotsFrame']['Bag'..bagNum]			-- 'BankSlotsFrame.Bag1' => 'BankSlotsFrame.Bag7'
 	else
 		return
 	end
 
 	-- Crée les widgets
-	o.frame = CreateFrame('Frame', nil, parent)
-	o.frame:SetAllPoints(parent)
-	o.frame:SetFrameLevel(parent:GetFrameLevel() + 5)
+	o.frame = CreateFrame('Frame', nil, o.parent)
+	o.frame:SetAllPoints(o.parent)
+	o.frame:SetFrameLevel(o.parent:GetFrameLevel() + 5)
 
 	o.bar = CreateFrame('StatusBar', nil, o.frame)
-	o.bar:SetWidth(parent:GetWidth())
+	o.bar:SetWidth(o.parent:GetWidth())
 	o.bar:SetHeight(11)
 	o.bar:SetPoint('BOTTOM')
 	o.bar:SetMinMaxValues(0, 1)
@@ -88,16 +87,20 @@ end
 -- Met à jour le compteur
 function MeterClass:update()
 
-	local total = GetContainerNumSlots(self.bagId)
-	local free  = GetContainerNumFreeSlots(self.bagId)
+	if self.parent:IsVisible() then
+		local total = GetContainerNumSlots(self.bagId)
+		local free  = GetContainerNumFreeSlots(self.bagId)
 
-	if total == 0 or self.disabled then
-		self.frame:Hide()
+		if total == 0 or self.disabled then
+			self.frame:Hide()
+		else
+			-- Affiche le nombre d'emplacements libres/total
+			self.bar:SetStatusBarColor(getFadedColor(0, total, free))
+			self.text:SetText(free..'/'..total)
+			self.frame:Show()
+		end
 	else
-		-- Affiche le nombre d'emplacements libres/total
-		self.bar:SetStatusBarColor(getFadedColor(0, total, free))
-		self.text:SetText(free..'/'..total)
-		self.frame:Show()
+		self.frame:Hide()
 	end
 end
 
