@@ -24,6 +24,11 @@ I rarely read comments here on Curse.com; should you need any help, you'd better
 
 ## Change Log
 
+* Version 1.0.6 - 2017/09/21
+	* Toc update for 7.3
+	* Using the latest Ace3 files (r1166)
+* Version 1.0.5 - 2017/03/29
+	* Toc update for 7.2
 * Version 1.0.4 - 2016/11/23
 	* Bank bag meters will correctly hide on empty slots
 * Version 1.0.3 - 2016/09/26
