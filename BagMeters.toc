@@ -1,7 +1,7 @@
-## Interface: 70300
+## Interface: 80000
 ## Title: BagMeters
 ## Author: Septh
-## Version: 1.0.6
+## Version: 1.0.7
 ## Notes: Displays the number of free slots in your bags.
 ## Notes-frFR: Affiche le nombre d'emplacements disponibles dans vos sacs.
 ## SavedVariables: BagMetersDB
