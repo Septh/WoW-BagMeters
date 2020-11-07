@@ -1,22 +1,12 @@
-## Interface: 80200
+## Interface: 90001
 ## Title: BagMeters
 ## Author: Septh
-## Version: 1.0.9
+## Version: 1.0.10
 ## Notes: Displays the number of free slots in your bags.
 ## Notes-frFR: Affiche le nombre d'emplacements disponibles dans vos sacs.
 ## SavedVariables: BagMetersDB
+## Dependencies: Ace3
 ## OptionalDeps: !Swatter, !BugGrabber
-
-libs\LibStub\LibStub.lua
-libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
-libs\AceAddon-3.0\AceAddon-3.0.xml
-libs\AceConsole-3.0\AceConsole-3.0.xml
-libs\AceEvent-3.0\AceEvent-3.0.xml
-libs\AceDB-3.0\AceDB-3.0.xml
-libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
-libs\AceGUI-3.0\AceGUI-3.0.xml
-libs\AceConfig-3.0\AceConfig-3.0.xml
-libs\AceLocale-3.0\AceLocale-3.0.xml
 
 locales\en.lua
 locales\fr.lua
