@@ -1,5 +1,10 @@
 ## Change Log
 
+* Version 1.0.11 - 2020/11/21
+	* Toc update for 9.0.2
+	* Added Classic Edition
+* Version 1.0.10 - 2019/09/10
+	* Toc update for 8.2.5
 * Version 1.0.9 - 2019/07/14
 	* Toc update for 8.2
 * Version 1.0.8 - 2018/12/18

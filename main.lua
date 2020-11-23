@@ -1,4 +1,4 @@
-
+-- GLOBALS: LibStub
 local addon = LibStub('AceAddon-3.0'):NewAddon('BagMeters', 'AceConsole-3.0', 'AceEvent-3.0')
 local L     = LibStub('AceLocale-3.0'):GetLocale('BagMeters')
 
@@ -12,6 +12,9 @@ local LAST_CHAR_BAG  = FIRST_CHAR_BAG + NUM_CHAR_BAGS - 1
 local NUM_BANK_BAGS  = _G.NUM_BANKBAGSLOTS		-- Dans FrameXML/Constants.lua
 local FIRST_BANK_BAG = LAST_CHAR_BAG + 1
 local LAST_BANK_BAG  = FIRST_BANK_BAG + NUM_BANK_BAGS - 1
+
+local table, ipairs = table, ipairs
+local SetCVar = SetCVar
 
 ------------------------------------------------------------------------------
 -- Options et défauts

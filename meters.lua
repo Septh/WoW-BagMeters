@@ -1,4 +1,4 @@
-
+-- GLOBALS: LibStub
 local addon   = LibStub('AceAddon-3.0'):GetAddon('BagMeters')
 local factory = addon:NewModule('MeterFactory')
 
@@ -10,6 +10,11 @@ local MeterClass	-- Forward declaration
 function factory:NewMeter(...)
 	return MeterClass:new(...)
 end
+
+local _G = _G
+local setmetatable = setmetatable
+local CreateFrame, GetContainerNumSlots, GetContainerNumFreeSlots = CreateFrame, GetContainerNumSlots, GetContainerNumFreeSlots
+local BACKPACK_CONTAINER, NUM_BAG_SLOTS, NUM_BANKBAGSLOTS = BACKPACK_CONTAINER, NUM_BAG_SLOTS, NUM_BANKBAGSLOTS
 
 ------------------------------------------------------------------------------
 local function getFadedColor(mini, maxi, current)
